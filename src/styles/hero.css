@@ -1,0 +1,23 @@
+.hero { max-width: 1240px; margin: auto; padding: 74px 32px 58px; display: grid; grid-template-columns: 1.05fr .95fr; gap: 42px; align-items: center; }
+.eyebrow { display: block; color: var(--green); font-size: 11px; font-weight: 800; letter-spacing: 1.6px; }
+.hero h1 { font: 800 clamp(40px, 5vw, 64px)/1.12 Manrope, sans-serif; letter-spacing: -3px; margin: 20px 0; }
+.hero h1 span { color: var(--green); }
+.hero-content > p, .section-heading p { color: var(--muted); line-height: 1.8; max-width: 520px; font-size: 15px; }
+.hero-actions { display: flex; gap: 12px; margin-top: 27px; flex-wrap: wrap; }
+.trust-row { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 30px; font-size: 12px; color: #5a6c61; }
+.trust-row span:first-letter { color: var(--green); }
+.hero-art { min-height: 360px; position: relative; display: grid; place-items: center; background: radial-gradient(ellipse at center, #e3f1e8 0%, #f3f8f3 46%, #fff 74%); border-radius: 50%; }
+.art-orbit { position: absolute; width: 75%; height: 75%; border: 1px dashed #b4d2bf; border-radius: 50%; }
+.orbit-two { width: 55%; height: 55%; border-color: #cbded0; }
+.hero-center { z-index: 1; width: 205px; height: 205px; border-radius: 50%; background: white; box-shadow: 0 18px 55px #214c321c; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px; }
+.hero-emoji { font-size: 55px; }
+.hero-center strong { font: 800 16px Manrope, sans-serif; }
+.hero-center > span:last-child { color: var(--muted); font-size: 12px; }
+.float-card { position: absolute; z-index: 2; display: flex; align-items: center; gap: 11px; padding: 14px; background: white; border: 1px solid #edf0ec; border-radius: 13px; box-shadow: 0 10px 35px #a6cfb013; }
+.float-top { top: 12%; right: -2%; }
+.float-bottom { bottom: 12%; left: -2%; }
+.float-icon { display: grid; place-items: center; width: 40px; height: 40px; background: var(--mint); border-radius: 10px; font-size: 22px; }
+.float-card strong, .float-card small { display: block; }
+.float-card strong { font-size: 12px; }
+.float-card small { color: var(--muted); margin-top: 4px; font-size: 10px; }
+.online-dot { width: 8px; height: 8px; border-radius: 50%; background: #46a66d; margin-left: 6px; }

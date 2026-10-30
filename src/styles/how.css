@@ -1,0 +1,6 @@
+.how-section { text-align: center; }
+.how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 40px; text-align: left; }
+.how-grid > div { border: 1px solid var(--line); border-radius: 13px; padding: 25px; }
+.how-grid > div > span { font: 800 28px Manrope, sans-serif; color: #a5cbb2; }
+.how-grid h3 { font: 800 16px Manrope, sans-serif; }
+.how-grid p { color: var(--muted); line-height: 1.8; font-size: 13px; }

@@ -1,0 +1,26 @@
+.jobs-section { background: #f8faf8; max-width: none; padding-inline: max(32px, calc((100% - 1176px) / 2)); }
+.jobs-heading { max-width: 1176px; margin-inline: auto; }
+.filters { max-width: 1176px; margin: 0 auto 25px; display: flex; gap: 12px; }
+.search-box { flex: 1; display: flex; align-items: center; gap: 10px; background: white; border: 1px solid var(--line); border-radius: 9px; padding: 0 13px; color: #809086; }
+.search-box input { border: 0; outline: 0; width: 100%; padding: 13px 0; background: transparent; min-width: 0; }
+.job-grid { max-width: 1176px; margin: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px; }
+.job-card { background: white; border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+.job-card-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.job-category { background: var(--mint); color: var(--green); border-radius: 6px; padding: 7px 10px; font-size: 11px; font-weight: 700; }
+.status { border-radius: 20px; padding: 6px 10px; font-size: 10px; font-weight: 700; }
+.status.open { background: #eaf6ed; color: #267447; }
+.status.accepted { background: #fff2da; color: #95661d; }
+.job-card h3 { font: 800 18px Manrope, sans-serif; letter-spacing: -.4px; margin: 19px 0 8px; }
+.job-description { color: var(--muted); font-size: 13px; line-height: 1.7; min-height: 43px; }
+.job-detail { display: flex; gap: 10px; align-items: center; margin: 13px 0; color: var(--green); font-size: 14px; }
+.job-detail span { color: #526259; font-size: 12px; }
+.job-card-footer { border-top: 1px solid var(--line); padding-top: 17px; margin-top: 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.job-card-footer small, .job-card-footer strong { display: block; }
+.job-card-footer small { font-size: 10px; color: var(--muted); margin-bottom: 5px; }
+.job-card-footer strong { font: 800 20px Manrope, sans-serif; }
+.view-label { font-size: 12px; font-weight: 700; color: var(--green); }
+.notice { max-width: 1176px; margin: 0 auto 18px; padding: 13px 16px; border: 1px solid rgb(255, 255, 255); background: #edf8f0; color: #205c37; border-radius: 8px; display: flex; justify-content: space-between; }
+.notice button, .close-button { border: 0; background: transparent; font-size: 23px; color: inherit; }
+.empty-state { text-align: center; padding: 60px 20px; color: var(--muted); }
+.empty-state > span { font-size: 35px; }
+.empty-state h3 { color: #24372c; }

@@ -1,0 +1,6 @@
+.button { border: 1px solid transparent; border-radius: 9px; padding: 13px 19px; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; justify-content: center; gap: 14px; transition: .2s; }
+.button.primary { background: var(--green); color: white; }
+.button.primary:hover { background: var(--green-dark); transform: translateY(-1px); }
+.button.secondary { background: white; border-color: #dbe4dd; color: #254536; }
+.button.secondary:hover { border-color: var(--green); }
+.button.small { padding: 10px 13px; font-size: 12px; }

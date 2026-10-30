@@ -1,0 +1,33 @@
+@media (max-width: 800px) {
+  .navbar { padding: 17px 20px; flex-wrap: wrap; }
+  .nav-links { order: 3; width: 100%; justify-content: center; gap: 22px; }
+  .hero { grid-template-columns: 1fr; padding: 48px 22px; gap: 20px; }
+  .hero-art { min-height: 320px; }
+  .section { padding: 60px 22px; }
+  .jobs-section { padding-inline: 22px; }
+  .category-grid { grid-template-columns: repeat(2, 1fr); }
+  .job-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .brand { font-size: 19px; }
+  .nav-actions { gap: 7px; }
+  .role-select { max-width: 112px; padding: 10px 5px; }
+  .nav-actions .button { padding: 10px 9px; }
+  .nav-links { font-size: 12px; gap: 15px; }
+  .hero h1 { letter-spacing: -2px; }
+  .hero-art { min-height: 275px; }
+  .hero-center { width: 165px; height: 165px; }
+  .hero-emoji { font-size: 42px; }
+  .float-card { padding: 9px; gap: 7px; }
+  .float-top { right: 0; }
+  .float-bottom { left: 0; }
+  .stats { padding: 20px 10px; }
+  .stats strong { font-size: 21px; }
+  .stats span { font-size: 10px; text-align: center; }
+  .section-heading { align-items: start; flex-direction: column; }
+  .filters { flex-direction: column; }
+  .how-grid { grid-template-columns: 1fr; }
+  .footer { padding: 25px 22px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+}

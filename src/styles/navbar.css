@@ -1,0 +1,9 @@
+.navbar { max-width: 1240px; margin: auto; padding: 22px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { display: inline-flex; align-items: center; gap: 9px; font: 800 22px Manrope, sans-serif; letter-spacing: -1px; white-space: nowrap; }
+.brand-icon { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; background: var(--green); color: white; font-size: 18px; }
+.brand-dot { color: #e2a746; margin-left: -9px; }
+.nav-links, .nav-actions { display: flex; align-items: center; gap: 26px; }
+.nav-links { color: #526259; font-size: 14px; }
+.nav-links a:hover { color: var(--green); }
+.nav-actions { gap: 12px; }
+.role-select, .filters select { border: 1px solid var(--line); border-radius: 9px; padding: 11px 13px; background: white; color: #304139; }

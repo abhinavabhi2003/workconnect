@@ -1,0 +1,11 @@
+.modal-backdrop { position: fixed; inset: 0; z-index: 10; background: #101b15a8; display: grid; place-items: center; padding: 20px; overflow-y: auto; }
+.job-form { width: min(100%, 560px); max-height: 92vh; overflow-y: auto; background: rgb(110, 219, 119); border-radius: 16px; padding: 27px; box-shadow: 0 25px 80px #0003; }
+.form-heading { display: flex; justify-content: space-between; align-items: start; margin-bottom: 22px; }
+.form-heading h2 { margin-bottom: 0; }
+.close-button { font-size: 29px; }
+.job-form label { display: flex; flex-direction: column; gap: 7px; font-size: 12px; font-weight: 700; margin-bottom: 16px; }
+.job-form input, .job-form select, .job-form textarea { width: 100%; border: 1px solid #14b537; border-radius: 8px; padding: 12px; color: #24372c; background: white; outline-color: #83b899; }
+.job-form textarea { resize: vertical; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+.form-note { font-size: 11px; line-height: 1.7; color: var(--muted); }
+.submit-button { width: 100%; margin-top: 10px; }

@@ -1,0 +1,2 @@
+.footer { border-top: 1px solid var(--line); max-width: 1240px; margin: auto; padding: 27px 32px; display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; }
+.footer p, .footer > span { color: var(--muted); font-size: 11px; }
