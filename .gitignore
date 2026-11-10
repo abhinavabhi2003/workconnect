@@ -31,3 +31,10 @@ dist-ssr
 # Old nested repositories
 /Yootility/
 /workconnect/
+# Spring Boot generated files
+backend/target/
+
+# Environment files
+.env
+.env.*
+!.env.example
