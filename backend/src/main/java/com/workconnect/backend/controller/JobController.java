@@ -1,3 +1,4 @@
+
 package com.workconnect.backend.controller;
 
 import com.workconnect.backend.dto.JobRequest;
@@ -6,8 +7,8 @@ import com.workconnect.backend.service.JobService;
 
 import jakarta.validation.Valid;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import java.util.List;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,15 +22,23 @@ public class JobController {
         this.jobService = jobService;
     }
 
+    // Create a new job
     @PostMapping
-    public ResponseEntity<JobResponse> createJob(
+    public JobResponse createJob(
             @Valid @RequestBody JobRequest request,
             Authentication authentication) {
 
-        JobResponse response = jobService.createJob(
+        return jobService.createJob(
                 request,
                 authentication.getName());
+    }
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    // Get all jobs posted by the logged-in customer
+    @GetMapping
+    public List<JobResponse> getCustomerJobs(
+            Authentication authentication) {
+
+        return jobService.getCustomerJobs(
+                authentication.getName());
     }
 }

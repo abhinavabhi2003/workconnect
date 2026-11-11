@@ -1,3 +1,4 @@
+
 package com.workconnect.backend.controller;
 
 import com.workconnect.backend.dto.ApplicationRequest;
@@ -5,6 +6,8 @@ import com.workconnect.backend.dto.ApplicationResponse;
 import com.workconnect.backend.service.JobApplicationService;
 
 import jakarta.validation.Valid;
+
+import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +25,7 @@ public class JobApplicationController {
         this.applicationService = applicationService;
     }
 
+    // Worker applies for a job
     @PostMapping
     public ResponseEntity<ApplicationResponse> applyForJob(
             @Valid @RequestBody ApplicationRequest request,
@@ -34,5 +38,14 @@ public class JobApplicationController {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(response);
+    }
+
+    // Worker views their own applications
+    @GetMapping
+    public List<ApplicationResponse> getMyApplications(
+            Authentication authentication) {
+
+        return applicationService.getMyApplications(
+                authentication.getName());
     }
 }

@@ -15,39 +15,52 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 public class SecurityConfig {
 
-    private final JwtAuthenticationFilter jwtAuthenticationFilter;
+        private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
-    public SecurityConfig(
-            JwtAuthenticationFilter jwtAuthenticationFilter) {
-        this.jwtAuthenticationFilter = jwtAuthenticationFilter;
-    }
+        public SecurityConfig(
+                        JwtAuthenticationFilter jwtAuthenticationFilter) {
+                this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+        }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+        @Bean
+        public PasswordEncoder passwordEncoder() {
+                return new BCryptPasswordEncoder();
+        }
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(
-            HttpSecurity http) throws Exception {
+        @Bean
+        public SecurityFilterChain securityFilterChain(
+                        HttpSecurity http) throws Exception {
 
-        http
-                .csrf(AbstractHttpConfigurer::disable)
-                .sessionManagement(session -> session
-                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(
-                                HttpMethod.POST,
-                                "/api/users/register",
-                                "/api/users/login")
-                        .permitAll()
-                        .requestMatchers("/api/customer/**").hasRole("CUSTOMER")
-                        .requestMatchers("/api/worker/**").hasRole("WORKER")
-                        .anyRequest().authenticated())
-                .addFilterBefore(
-                        jwtAuthenticationFilter,
-                        UsernamePasswordAuthenticationFilter.class);
+                http
+                                .csrf(AbstractHttpConfigurer::disable)
+                                .sessionManagement(session -> session
+                                                .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                                .authorizeHttpRequests(auth -> auth
 
-        return http.build();
-    }
+                                                .requestMatchers(
+                                                                HttpMethod.POST,
+                                                                "/api/users/register",
+                                                                "/api/users/login")
+                                                .permitAll()
+
+                                                // Public job browsing for homepage visitors
+                                                .requestMatchers(
+                                                                HttpMethod.GET,
+                                                                "/api/worker/jobs")
+                                                .permitAll()
+
+                                                .requestMatchers("/api/customer/**")
+                                                .hasRole("CUSTOMER")
+
+                                                .requestMatchers("/api/worker/**")
+                                                .hasRole("WORKER")
+
+                                                .anyRequest().authenticated())
+
+                                .addFilterBefore(
+                                                jwtAuthenticationFilter,
+                                                UsernamePasswordAuthenticationFilter.class);
+
+                return http.build();
+        }
 }

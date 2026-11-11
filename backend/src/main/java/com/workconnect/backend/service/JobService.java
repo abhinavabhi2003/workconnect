@@ -1,3 +1,4 @@
+
 package com.workconnect.backend.service;
 
 import com.workconnect.backend.dto.JobRequest;
@@ -9,8 +10,8 @@ import com.workconnect.backend.entity.UserRole;
 import com.workconnect.backend.repository.JobRepository;
 import com.workconnect.backend.repository.UserRepository;
 
-import java.util.stream.Collectors;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,14 +22,19 @@ public class JobService {
     private final JobRepository jobRepository;
     private final UserRepository userRepository;
 
-    public JobService(JobRepository jobRepository,
+    public JobService(
+            JobRepository jobRepository,
             UserRepository userRepository) {
+
         this.jobRepository = jobRepository;
         this.userRepository = userRepository;
     }
 
+    // Create a new job for the logged-in customer
     @Transactional
-    public JobResponse createJob(JobRequest request, String customerEmail) {
+    public JobResponse createJob(
+            JobRequest request,
+            String customerEmail) {
 
         User customer = userRepository.findByEmail(customerEmail)
                 .orElseThrow(() -> new IllegalArgumentException("Customer not found"));
@@ -54,10 +60,29 @@ public class JobService {
         return new JobResponse(savedJob);
     }
 
+    // Get all open jobs for workers
     @Transactional(readOnly = true)
     public List<JobResponse> getAvailableJobs() {
 
         return jobRepository.findByStatus(JobStatus.OPEN)
+                .stream()
+                .map(JobResponse::new)
+                .collect(Collectors.toList());
+    }
+
+    // Get jobs posted by the logged-in customer
+    @Transactional(readOnly = true)
+    public List<JobResponse> getCustomerJobs(String customerEmail) {
+
+        User customer = userRepository.findByEmail(customerEmail)
+                .orElseThrow(() -> new IllegalArgumentException("Customer not found"));
+
+        if (customer.getRole() != UserRole.CUSTOMER) {
+            throw new IllegalArgumentException(
+                    "Only customers can view their jobs");
+        }
+
+        return jobRepository.findByCustomerUserId(customer.getUserId())
                 .stream()
                 .map(JobResponse::new)
                 .collect(Collectors.toList());
